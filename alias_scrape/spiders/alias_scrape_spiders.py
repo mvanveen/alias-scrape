@@ -12,7 +12,7 @@ class AliasScrapeSpider(BaseSpider):
       ''.join((
         'https://github.com/search?langOverride=&language=Shell&q=alias&repo'
         '=&start_value=', str(x), '&type=Code&x=12&y=18'
-      )) for x in range(1, 10)
+      )) for x in range(1, 20)
   ]
 
 

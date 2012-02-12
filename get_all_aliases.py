@@ -6,8 +6,9 @@ session = Session()
 
 items = session.query(Alias).all()
 
-for x in items:
-  try:
-    print x
-  except:
-    continue
+print len(items)
+#for x in items:
+#  try:
+#    print x
+#  except:
+#    continue

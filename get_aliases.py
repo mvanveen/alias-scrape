@@ -42,7 +42,12 @@ class AliasFile(object):
     for item in self._results:
       if len(item) == 2:
         print item
-        alias = Alias(item[0], item[1], self._raw_url, self._repo_url)
+        alias = Alias(
+          item[0].lstrip().rstirp() if isinstance(item[0], str) else item[0],
+          item[1].lstrip().rstirp() if isinstance(item[1], str) else item[1],
+          self._raw_url,
+          self._repo_url
+        )
         session.add(alias)
       else:
         pass
@@ -54,7 +59,7 @@ class AliasFile(object):
       raise
 
 with open('items.json', 'r') as items:
-  _json = json.loads(items.read())
+  _json = json.loads(items.read().rstrip())
 
 def load_item(dict_item):
   alias = AliasFile(**(dict_item))
